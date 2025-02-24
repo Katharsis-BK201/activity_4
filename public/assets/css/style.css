@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+header .logo{
+    display: flex;
+    align-items: center;
+}
+header .img-logo{
+    width: 100px;
+    height: 100px;
+}
+header .navbar{
+    position: relative;
+}
+header .navbar ul{
+    display: flex;
+    list-style: none;
+}
+header .navbar ul li{
+    margin-right: 20px;
+    position: relative;
+}
+header .navbar ul li a{
+    color: #fff;
+    text-decoration: none;
+
+}
+header .navbar ul li a:hover{
+    color: #f1c40f;
+}
+header .burger-icon{
+    display: none;
+    font-size: 2.0rem;
+    color: #fff;
+}
+
+
+@media only screen and (min-width: 768px){
+    header .navbar ul li a::after{
+        content:'';
+        display: block;
+        width: 0;
+        height: 3px;
+        background-color: #ffcc00;
+        transition: all 0.5s;
+        position:absolute;
+        border-radius: 5px;
+
+    }
+    header .navbar ul li a:hover::after{
+        width: 100%;
+    }
+    
+}
+@media only screen and (max-width: 768px){
+    header .navbar{
+        position: absolute;
+        background-color: #021e39;
+        width: 100%;
+        top: 120px;
+        left: 0;
+        height:0;
+        transition: all 0.5s;
+        opacity: 0;
+    }
+    header .burger-icon{
+        display: block;
+    }
+    header .navbar ul{
+        display:block ;
+        text-align: center;
+    }
+    
+    header .navbar ul li{
+        padding: 15px 0;
+        text-align: center;
+        width: 100%;
+    }
+    header .navbar ul li:hover{
+        background-color: #f1c40f;
+        transition: all 0.5s;
+    }
+    
+    header .navbar.active{
+        height: 200px;
+        opacity: 1;
+    }
+}
